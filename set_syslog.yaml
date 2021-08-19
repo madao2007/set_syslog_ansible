@@ -1,0 +1,22 @@
+-
+  name: set syslog server
+  hosts: spines
+  tasks:
+
+  - name: set syslog server ios
+    cisco.nxos.nxos_command:
+      commands:
+      - configure
+      - command: logging host 1.1.1.1
+    ignore_errors: yes
+
+  - name: set syslog server nxos
+    cisco.nxos.nxos_command:
+      commands:
+      - configure
+      - command: logging server 2.2.2.2
+    ignore_errors: yes
+  
+  - name: save config
+    cisco.nxos.nxos_command:
+      commands: copy run start
