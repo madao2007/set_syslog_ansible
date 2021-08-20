@@ -12,7 +12,7 @@ ansible-galaxy collection install cisco.ios
 ```shell
 echo "host_key_checking = False" >> /etc/ansible/ansible.cfg
 ```
-4. Modify the vars `syslog_server` in playbook `set_syslog.yaml` 
+4. Modify the vars `syslog_server` in `group_vars/all.yaml`
 5. Run playbook
 ```shell
 ansible-playbook set_syslog.yaml -i inventory.ini

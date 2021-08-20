@@ -2,8 +2,6 @@
   - name: set syslog server ios
     hosts: ios
     gather_facts: no
-    vars:
-      syslog_server: 4.4.4.4
     tasks:
 
     - name: set syslog server ios
@@ -21,8 +19,6 @@
   - name: set syslog server nxos
     hosts: nxos
     gather_facts: no
-    vars:
-      syslog_server: 4.4.4.4
     tasks:
 
     - name: set syslog server nxos
