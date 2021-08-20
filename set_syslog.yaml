@@ -1,28 +1,35 @@
 -
   name: set syslog server
   hosts: all
+  gather_facts: no
+  vars:
+    syslog_server: 3.3.3.3
   tasks:
 
   - name: set syslog server ios
     cisco.ios.ios_command:
       commands:
       - configure terminal
-      - command: logging host 1.1.1.1
+      - command: logging host {{ syslog_server }}
+    when: ansible_network_os == 'ios'
     ignore_errors: yes
 
   - name: save ios config
     cisco.ios.ios_config:
       save_when: always
+    when: ansible_network_os == 'ios'
     ignore_errors: yes
 
   - name: set syslog server nxos
     cisco.nxos.nxos_command:
       commands:
       - configure
-      - command: logging server 2.2.2.2
+      - command: logging server {{ syslog_server }}
+    when: ansible_network_os == 'nxos'
     ignore_errors: yes
 
   - name: save nxos config
     cisco.nxos.nxos_config:
       save_when: always
+    when: ansible_network_os == 'nxos'
     ignore_errors: yes
