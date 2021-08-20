@@ -17,3 +17,5 @@ echo "host_key_checking = False" >> /etc/ansible/ansible.cfg
 ```shell
 ansible-playbook set_syslog.yaml -i inventory.ini
 ```
+
+## In Belgium branch, to develop the Ansible jump host function
